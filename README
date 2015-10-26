@@ -1,0 +1,27 @@
+Game rankings
+
+Implement a ranking program using the Elo ranking algorithm.
+
+Given two files:
+
+names, where each line has an ID number and a name for said ID
+matches, where each line contains the ID of the two players of a match and the first one is the winner of said match.
+
+
+
+Implement a program that can read both files and then:
+
+* Score each player based on the games played
+* Generate a list of players sorted by score, their ranking (position in the list) and their number of wins and losses.
+* Generate a report for each person, showing with whom they played and how they fared.
+* Generate a list of suggested next matches.
+
+
+
+Implementation notes:
+
+You can choose how to implement the different functionalities for the program.
+You may choose to implement it as a command line
+1. parameter (e.g. "./elo names matches show_ranking", "elo names matches show_rank USER_NAME", etc).
+2. Try to keep the output format independent of the main application logic (ie design it so that it is possible to add
+new output formats if needed).

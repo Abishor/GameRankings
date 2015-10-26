@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="competition" class="model.Competition">
+        <constructor-arg>
+            <bean id="competitorsReader" class="reader.CompetitorsReader">
+                <property name="source" value="names.txt"/>
+            </bean>
+        </constructor-arg>
+    </bean>
+
+    <bean id="matchHistory" class="model.MatchHistory">
+        <constructor-arg>
+            <bean id="historyReader" class="reader.HistoryReader">
+                <property name="source" value="matches.txt"/>
+            </bean>
+        </constructor-arg>
+    </bean>
+
+    <bean id="ranking" class="model.Ranking">
+        <constructor-arg ref="competition"/>
+    </bean>
+
+    <bean id="gameRanking" class="GameRanking">
+        <property name="matchHistory" ref="matchHistory"/>
+        <property name="ranking" ref="ranking"/>
+    </bean>
+
+</beans>
